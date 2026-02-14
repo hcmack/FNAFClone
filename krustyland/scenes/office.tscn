@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://jv2qlteswexp"]
+
+[ext_resource type="Script" uid="uid://dqsisuvyxo6q8" path="res://scripts/camera.gd" id="1_n0wcf"]
+[ext_resource type="Texture2D" uid="uid://cj02qy6wy267k" path="res://assets/officeplaceholder.png" id="2_jwaux"]
+[ext_resource type="Script" uid="uid://b4o7h65btcd7j" path="res://scripts/button_hover.gd" id="3_7jj4f"]
+[ext_resource type="PackedScene" uid="uid://b7ksjomu8b5w3" path="res://scenes/cameras.tscn" id="4_7jj4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0wcf"]
+size = Vector2(2167, 742)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwaux"]
+size = Vector2(605, 109)
+
+[node name="root" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("boundary_area")]
+script = ExtResource("1_n0wcf")
+boundary_area = NodePath("../officeBounds")
+follow_speed = 2.0
+
+[node name="Officeplaceholder" type="Sprite2D" parent="."]
+position = Vector2(662, 265)
+scale = Vector2(1.8836806, 1.1358025)
+texture = ExtResource("2_jwaux")
+offset = Vector2(-353.4942, -225.3913)
+
+[node name="officeBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="officeBounds"]
+position = Vector2(-5.5, 10)
+shape = SubResource("RectangleShape2D_n0wcf")
+
+[node name="cameraOpen" type="Area2D" parent="."]
+script = ExtResource("3_7jj4f")
+next_scene = ExtResource("4_7jj4f")
+hover_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cameraOpen"]
+position = Vector2(-1, 310)
+shape = SubResource("RectangleShape2D_jwaux")

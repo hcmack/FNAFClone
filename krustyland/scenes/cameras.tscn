@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ksjomu8b5w3"]
+
+[ext_resource type="Texture2D" uid="uid://j6rnu76xfjj1" path="res://assets/cameraplaceholder.png" id="1_h5uep"]
+[ext_resource type="Script" uid="uid://b4o7h65btcd7j" path="res://scripts/button_hover.gd" id="2_or487"]
+[ext_resource type="PackedScene" uid="uid://jv2qlteswexp" path="res://scenes/office.tscn" id="3_r03xi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5uep"]
+size = Vector2(255.5, 218.5)
+
+[node name="root" type="Node2D"]
+
+[node name="Cameraplaceholder" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+texture = ExtResource("1_h5uep")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="officebutton" type="Area2D" parent="."]
+script = ExtResource("2_or487")
+next_scene = ExtResource("3_r03xi")
+hover_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="officebutton"]
+position = Vector2(-429, 153)
+shape = SubResource("RectangleShape2D_h5uep")

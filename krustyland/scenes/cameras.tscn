@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ksjomu8b5w3"]
+[gd_scene load_steps=3 format=3 uid="uid://b7ksjomu8b5w3"]
 
 [ext_resource type="Texture2D" uid="uid://j6rnu76xfjj1" path="res://assets/cameraplaceholder.png" id="1_h5uep"]
-[ext_resource type="Script" uid="uid://b4o7h65btcd7j" path="res://scripts/button_hover.gd" id="2_or487"]
-[ext_resource type="PackedScene" uid="uid://jv2qlteswexp" path="res://scenes/office.tscn" id="3_r03xi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5uep"]
-size = Vector2(255.5, 218.5)
+[ext_resource type="Script" uid="uid://blxua6w3dsvux" path="res://scripts/onHover.gd" id="2_or487"]
 
 [node name="root" type="Node2D"]
 
@@ -15,11 +11,47 @@ texture = ExtResource("1_h5uep")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="officebutton" type="Area2D" parent="."]
+[node name="backToOffice" type="TextureButton" parent="."]
+offset_left = -527.0
+offset_top = 63.0
+offset_right = -350.0
+offset_bottom = 229.0
 script = ExtResource("2_or487")
-next_scene = ExtResource("3_r03xi")
-hover_time = 0.5
+scene_path = "res://scenes/office.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="officebutton"]
-position = Vector2(-429, 153)
-shape = SubResource("RectangleShape2D_h5uep")
+[node name="StageCam" type="Node2D" parent="."]
+
+[node name="LeftHallCam" type="Node2D" parent="."]
+
+[node name="RightHallCam" type="Node2D" parent="."]
+
+[node name="RideCam" type="Node2D" parent="."]
+
+[node name="BurgerCam" type="Node2D" parent="."]
+
+[node name="UIElements" type="CanvasLayer" parent="."]
+
+[node name="StageCam" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LHallCam" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RHallCam" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RideCam" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BurgerCam" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="backToOffice" type="TextureButton" parent="UIElements"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_or487")

@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://jv2qlteswexp"]
+[gd_scene load_steps=6 format=3 uid="uid://jv2qlteswexp"]
 
 [ext_resource type="Script" uid="uid://dqsisuvyxo6q8" path="res://scripts/camera.gd" id="1_n0wcf"]
 [ext_resource type="Texture2D" uid="uid://cj02qy6wy267k" path="res://assets/officeplaceholder.png" id="2_jwaux"]
-[ext_resource type="Script" uid="uid://b4o7h65btcd7j" path="res://scripts/button_hover.gd" id="3_7jj4f"]
-[ext_resource type="PackedScene" uid="uid://b7ksjomu8b5w3" path="res://scenes/cameras.tscn" id="4_7jj4f"]
+[ext_resource type="Texture2D" uid="uid://dmh8d4yn6r7ke" path="res://icon.svg" id="3_7jj4f"]
+[ext_resource type="Script" uid="uid://blxua6w3dsvux" path="res://scripts/onHover.gd" id="4_7jj4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0wcf"]
 size = Vector2(2167, 742)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwaux"]
-size = Vector2(605, 109)
 
 [node name="root" type="Node2D"]
 
@@ -30,11 +27,11 @@ offset = Vector2(-353.4942, -225.3913)
 position = Vector2(-5.5, 10)
 shape = SubResource("RectangleShape2D_n0wcf")
 
-[node name="cameraOpen" type="Area2D" parent="."]
-script = ExtResource("3_7jj4f")
-next_scene = ExtResource("4_7jj4f")
-hover_time = 0.5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cameraOpen"]
-position = Vector2(-1, 310)
-shape = SubResource("RectangleShape2D_jwaux")
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -211.0
+offset_top = 279.0
+offset_right = 211.0
+offset_bottom = 353.0
+action_mode = 0
+texture_hover = ExtResource("3_7jj4f")
+script = ExtResource("4_7jj4f")

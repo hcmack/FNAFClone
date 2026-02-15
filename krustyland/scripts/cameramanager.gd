@@ -1,20 +1,18 @@
 extends Node2D
 
-# The currently active camera node
 var current_cam: Node2D = null
 
 func _ready():
-	# Optionally start in OfficeCam
 	switch_camera("StageCam")
 
-# Switch camera by Node2D name
 func switch_camera(cam_name: String):
-	# Hide all cameras
+
+	# Hide all camera areas (exclude UIElements)
 	for child in get_children():
-		if child is Node2D and child.name != "UI":
+		if child is Node2D and child.name != "UIElements":
 			child.visible = false
 
-	# Show selected camera
+	# Show selected one
 	var cam = get_node_or_null(cam_name)
 	if cam:
 		cam.visible = true
